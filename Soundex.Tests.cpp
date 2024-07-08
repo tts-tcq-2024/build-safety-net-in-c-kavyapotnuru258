@@ -8,7 +8,8 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   ASSERT_STREQ(soundex,"A200");
 }
 TEST(SoudexTestsuite, gettingvaluesfrommacro) {
- //AAA
-  char c;
- GET_SOUNDEX_CODE(c);
+  char c='A';
+  int res=GET_SOUNDEX_CODE(c);
+  ASSERT_EQ(0,res);
+ )
 }
