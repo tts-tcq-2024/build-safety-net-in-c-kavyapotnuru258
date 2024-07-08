@@ -25,6 +25,15 @@ void addingcode( int *sIndex, char code,char *soundex)
             soundex[*sIndex++] = code;
    }
 }
+void zeropadding(int *sIndex,char *soundex)
+{
+ while (*sIndex < 4) {
+        soundex[*sIndex++] = '0';
+    }
+
+    soundex[4] = '\0';
+}
+
 
 
 void generateSoundex(const char *name, char *soundex) {
@@ -37,11 +46,7 @@ void generateSoundex(const char *name, char *soundex) {
         addingcode( &sIndex,code,soundex);
     }
 
-    while (sIndex < 4) {
-        soundex[sIndex++] = '0';
-    }
-
-    soundex[4] = '\0';
+    zeropadding(&sIndex,soundex);
 }
 
 #endif // SOUNDEX_H
