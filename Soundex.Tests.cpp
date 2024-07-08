@@ -7,7 +7,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   generateSoundex("AX" ,soundex);
   ASSERT_STREQ(soundex,"A200");
 }
-TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
+TEST(SoudexTestsuite, gettingvaluesfrommacro) {
  //AAA
   char c;
  GET_SOUNDEX_CODE(c);
