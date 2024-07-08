@@ -30,18 +30,18 @@ TEST(SoundexTest, SimilarStartingLetters) {
     EXPECT_STREQ(soundex, "A261");
 }
 
-// Test for names with different lengths
-// TEST(SoundexTest, DifferentLengths) {
-//     char soundex[5];
-//     generateSoundex("Pfister", soundex);
-//     EXPECT_STREQ(soundex, "P123");
+//Test for names with different lengths
+TEST(SoundexTest, DifferentLengths) {
+    char soundex[5];
+    generateSoundex("Pfister", soundex);
+    EXPECT_STREQ(soundex, "P123");
     
-//     generateSoundex("Tymczak", soundex);
-//     EXPECT_STREQ(soundex, "T522");
+    generateSoundex("Tymczak", soundex);
+    EXPECT_STREQ(soundex, "T522");
     
-//     generateSoundex("Honeyman", soundex);
-//     EXPECT_STREQ(soundex, "H555");
-// }
+    generateSoundex("Honeyman", soundex);
+    EXPECT_STREQ(soundex, "H555");
+}
 
 // Test for names with no matching consonant codes
 TEST(SoundexTest, NoMatchingConsonantCodes) {
@@ -85,9 +85,9 @@ TEST(SoundexTest, EdgeCases) {
 // Test for names with non-alphabet characters
 TEST(SoundexTest, NonAlphabetCharacters) {
     char soundex[5];
-    generateSoundex("O'Malley", soundex);
+    generateSoundex("O@Malley", soundex);
     EXPECT_STREQ(soundex, "O540");
     
-    generateSoundex("D'Angelo", soundex);
+    generateSoundex("D@Angelo", soundex);
     EXPECT_STREQ(soundex, "D524");
 }
