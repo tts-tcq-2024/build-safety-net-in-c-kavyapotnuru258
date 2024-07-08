@@ -90,4 +90,21 @@ TEST(SoundexTest, NonAlphabetCharacters) {
     
     generateSoundex("D@Angelo", soundex);
     EXPECT_STREQ(soundex, "D524");
+
+   generateSoundex("D2Angelo", soundex);
+    EXPECT_STREQ(soundex, "D524");
+     
 }
+TEST(SoundexTest, NonAlphabetCharacters) {
+    char soundex[5];
+    generateSoundex("OM", soundex);
+    EXPECT_STREQ(soundex, "O500");
+    
+    generateSoundex("DA", soundex);
+    EXPECT_STREQ(soundex, "D000");
+
+  
+     
+}
+
+
