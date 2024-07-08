@@ -1,9 +1,10 @@
 #ifndef SOUNDEX_H
 #define SOUNDEX_H
 
+#include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
-#include <stdio.h>
+
  
 #define GET_SOUNDEX_CODE(c) (\
     (c == 'B' || c == 'F' || c == 'P' || c == 'V') ? '1' : \
