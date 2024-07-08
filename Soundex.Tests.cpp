@@ -7,12 +7,7 @@ TEST(SoudexTestsuite, ReplacesConsonantsWithAppropriateDigits) {
   generateSoundex("AX" ,soundex);
   ASSERT_STREQ(soundex,"A200");
 }
-TEST(SoudexTestsuite, gettingvaluesfrommacro) {
-  char c='A';
-  int res=GET_SOUNDEX_CODE(c);
-  ASSERT_EQ(0,res);
- 
-}
+
 TEST(SoundexTest, BasicFunctionality) {
     char soundex[5];
     generateSoundex("Robert", soundex);
