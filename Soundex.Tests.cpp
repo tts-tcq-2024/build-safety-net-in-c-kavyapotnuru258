@@ -95,7 +95,7 @@ TEST(SoundexTest, NonAlphabetCharacters) {
     EXPECT_STREQ(soundex, "D524");
      
 }
-TEST(SoundexTest, NonAlphabetCharacters) {
+TEST(SoundexTest, Shortname) {
     char soundex[5];
     generateSoundex("OM", soundex);
     EXPECT_STREQ(soundex, "O500");
