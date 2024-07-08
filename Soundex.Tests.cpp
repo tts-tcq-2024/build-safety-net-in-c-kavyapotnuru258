@@ -107,6 +107,26 @@ TEST(SoundexTest, Shortname) {
      
 }
 
+TEST(SoundexTest, ConsecutiveConsonantsSameCode) {
+    char soundex[5];
+    generateSoundex("Jackson", soundex);
+    EXPECT_STREQ(soundex, "J250");
+
+    generateSoundex("Jxson", soundex);
+    EXPECT_STREQ(soundex, "J250");
+}
+
+
+TEST(SoundexTest, ConsecutiveConsonantsDifferentCodes) {
+    char soundex[5];
+    generateSoundex("Lindsay", soundex);
+    EXPECT_STREQ(soundex, "L532");
+
+    generateSoundex("Lindzay", soundex);
+    EXPECT_STREQ(soundex, "L532");
+}
+
+
 
 
 
