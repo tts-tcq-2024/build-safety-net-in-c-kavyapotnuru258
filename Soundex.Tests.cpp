@@ -12,26 +12,35 @@ TEST(SoundexTest, BasicFunctionality) {
     char soundex[5];
     generateSoundex("Robert", soundex);
     EXPECT_STREQ(soundex, "R163");
+    
+    generateSoundex("Rupert", soundex);
+    EXPECT_STREQ(soundex, "R163");
+    
+    generateSoundex("Rubin", soundex);
+    EXPECT_STREQ(soundex, "R150");
 }
+
 
 TEST(SoundexTest, SimilarStartingLetters) {
     char soundex[5];
-    generateSoundex("Ashitosh", soundex);
-    EXPECT_STREQ(soundex, "A232");
+    generateSoundex("Ashcraft", soundex);
+    EXPECT_STREQ(soundex, "A261");
     
-    generateSoundex("Ashitom", soundex);
-    EXPECT_STREQ(soundex, "A235");
+    generateSoundex("Ashcroft", soundex);
+    EXPECT_STREQ(soundex, "A261");
 }
 
 
 TEST(SoundexTest, DifferentLengths) {
     char soundex[5];
-    generateSoundex("Apple", soundex);
-    EXPECT_STREQ(soundex, "A140");
+    generateSoundex("Pfister", soundex);
+    EXPECT_STREQ(soundex, "P123");
     
-    generateSoundex("Apples", soundex);
-    EXPECT_STREQ(soundex, "A142");
-   
+    generateSoundex("Tymczak", soundex);
+    EXPECT_STREQ(soundex, "T520");
+    
+    generateSoundex("Honeyman", soundex);
+    EXPECT_STREQ(soundex, "H500");
 }
 
 
@@ -55,7 +64,7 @@ TEST(SoundexTest, RepeatedLetters) {
 }
 
 
-TEST(SoundexTest, Vowelcase) {
+TEST(SoundexTest, EdgeCases) {
     char soundex[5];
     generateSoundex("A", soundex);
     EXPECT_STREQ(soundex, "A000");
@@ -73,18 +82,42 @@ TEST(SoundexTest, Vowelcase) {
     EXPECT_STREQ(soundex, "U000");
 }
 
-TEST(SoundexTest, NonAlphabet) {
-    char soundex[5];
-    generateSoundex("O@Mygod", soundex);
-    EXPECT_STREQ(soundex, "O523");
-   
 
-   generateSoundex("D2Areto", soundex);
-    EXPECT_STREQ(soundex, "D630");
+TEST(SoundexTest, NonAlphabetCharacters) {
+    char soundex[5];
+    generateSoundex("O@Malley", soundex);
+    EXPECT_STREQ(soundex, "O540");
+    
+    generateSoundex("D@Angelo", soundex);
+    EXPECT_STREQ(soundex, "D524");
+
+   generateSoundex("D2Angelo", soundex);
+    EXPECT_STREQ(soundex, "D524");
+     
+}
+TEST(SoundexTest, Shortname) {
+    char soundex[5];
+    generateSoundex("OM", soundex);
+    EXPECT_STREQ(soundex, "O500");
+    
+    generateSoundex("DA", soundex);
+    EXPECT_STREQ(soundex, "D000");
+
+  
      
 }
 
 
 
 
-
+TEST(SoundexTest, UpperLowercase) {
+    char soundex[5];
+    generateSoundex("Robert", soundex);
+    EXPECT_STREQ(soundex, "R163");
+    
+    generateSoundex("robert", soundex);
+    EXPECT_STREQ(soundex, "R163");
+    
+    generateSoundex("RObert", soundex);
+    EXPECT_STREQ(soundex, "R163");
+}
