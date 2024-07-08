@@ -17,10 +17,10 @@ TEST(SoundexTest, BasicFunctionality) {
 TEST(SoundexTest, SimilarStartingLetters) {
     char soundex[5];
     generateSoundex("Ashitosh", soundex);
-    EXPECT_STREQ(soundex, "A260");
+    EXPECT_STREQ(soundex, "A232");
     
     generateSoundex("Ashitom", soundex);
-    EXPECT_STREQ(soundex, "A260");
+    EXPECT_STREQ(soundex, "A235");
 }
 
 
@@ -30,7 +30,7 @@ TEST(SoundexTest, DifferentLengths) {
     EXPECT_STREQ(soundex, "A140");
     
     generateSoundex("Apples", soundex);
-    EXPECT_STREQ(soundex, "A140");
+    EXPECT_STREQ(soundex, "A142");
    
 }
 
@@ -76,11 +76,11 @@ TEST(SoundexTest, Vowelcase) {
 TEST(SoundexTest, NonAlphabet) {
     char soundex[5];
     generateSoundex("O@Mygod", soundex);
-    EXPECT_STREQ(soundex, "O500");
+    EXPECT_STREQ(soundex, "O523");
    
 
    generateSoundex("D2Areto", soundex);
-    EXPECT_STREQ(soundex, "D600");
+    EXPECT_STREQ(soundex, "D630");
      
 }
 
