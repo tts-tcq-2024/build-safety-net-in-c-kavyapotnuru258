@@ -22,13 +22,15 @@ char getSoundexCode(char c) {
 void addingcode( int *sIndex, char code,char *soundex)
 {
    if (code != '0' && code != soundex[*sIndex - 1]) {
-            soundex[*(sIndex)++] = code;
+            soundex[*sIndex] = code;
+            *(sIndex)++;
    }
 }
 void zeropadding(int *sIndex,char *soundex)
 {
  while (*sIndex < 4) {
-        soundex[(*sIndex)++] = '0';
+        soundex[*sIndex] = '0';
+          *(sIndex)++;
     }
 
     soundex[4] = '\0';
