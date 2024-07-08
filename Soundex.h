@@ -5,8 +5,19 @@
 #include <ctype.h>
 #include <string.h>
 
+#define GET_SOUNDEX_CODE(c) (\
+    (c== 'B'|| c== 'F'||c=='P' ||c=='V')? '1':\
+    (c== 'C'|| c== 'G'||c=='J' ||c=='K'||c== 'Q'|| c== 'S'||c=='X' ||c=='Z')? '2' :\
+    (c== 'D'|| c== 'T') ? '3':\
+    (c== 'L') ? '4' : \
+    (c== 'M'|| c== 'N') ? '5' :\
+     (c== 'R') ?'6' :\
+     '0')
+
+
 char getSoundexCode(char c) {
     c = toupper(c);
+    return  GET_SOUNDEX_CODE(c);
 //     if(c== 'B'|| c== 'F'||c=='P' ||c=='V')
 //       return '1';
 //      if(c== 'C'|| c== 'G'||c=='J' ||c=='K'||c== 'Q'|| c== 'S'||c=='X' ||c=='Z')
@@ -23,15 +34,15 @@ char getSoundexCode(char c) {
 
     
 
-    switch (c) {
-        case 'B': case 'F': case 'P': case 'V': return '1';
-        case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
-        case 'D': case 'T': return '3';
-        case 'L': return '4';
-        case 'M': case 'N': return '5';
-        case 'R': return '6';
-        default: return '0'; // For A, E, I, O, U, H, W, Y
-    }
+    // switch (c) {
+    //     case 'B': case 'F': case 'P': case 'V': return '1';
+    //     case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
+    //     case 'D': case 'T': return '3';
+    //     case 'L': return '4';
+    //     case 'M': case 'N': return '5';
+    //     case 'R': return '6';
+    //     default: return '0'; // For A, E, I, O, U, H, W, Y
+    // }
 }
 
 void generateSoundex(const char *name, char *soundex) {
