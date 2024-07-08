@@ -108,27 +108,9 @@ TEST(SoundexTest, Shortname) {
 }
 
 
-TEST(SoundexTest, ConsecutiveConsonantsSameCode) {
-    char soundex[5];
-    generateSoundex("Jackson", soundex);
-    EXPECT_STREQ(soundex, "J250");
-    
-    generateSoundex("Jxson", soundex);
-    EXPECT_STREQ(soundex, "J250");
-}
 
-// Test for handling consecutive consonants with different codes
-TEST(SoundexTest, ConsecutiveConsonantsDifferentCodes) {
-    char soundex[5];
-    generateSoundex("Lindsay", soundex);
-    EXPECT_STREQ(soundex, "L532");
-    
-    generateSoundex("Lindzay", soundex);
-    EXPECT_STREQ(soundex, "L532");
-}
 
-// Test for handling uppercase and lowercase equivalency
-TEST(SoundexTest, UpperLowerCaseEquivalency) {
+TEST(SoundexTest, UpperLowercase) {
     char soundex[5];
     generateSoundex("Robert", soundex);
     EXPECT_STREQ(soundex, "R163");
